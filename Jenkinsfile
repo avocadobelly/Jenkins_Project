@@ -3,7 +3,11 @@ pipeline {
     stages {
         stage('Stage 1') {
             steps {
-                echo 'Hello World!'
+                echo '"Beginning build process"'
+                sleep 2
+                fileExists './main.js'
+                input '"Do you want to run main.js?"'
+                bat 'node main.js'
             }
         }
     }
